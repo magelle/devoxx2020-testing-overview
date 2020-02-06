@@ -1,11 +1,9 @@
 # Tour d'horizon des tests dans nos applications
 
-Livrer un (micro) service pour s'apercevoir que l’on a cassé l’environnement, c’est agaçant.
+TDD? BDD? E2E? Quoi tester ? comment ? Quelle stratégie de tests pour quelles parties du code ? Beaucoup de questions se posent autour des tests. On en parle beaucoup mais comment fait-on dans la vraie vie ?
 
-Dans des architectures de plus en plus orientées (micro) services, et les S.I. complexes, vérifier qu’une nouvelle version de votre service continuera à pouvoir communiquer avec les autres devient de plus en plus important. 
+Mais nous ne nous arrêterons pas là. Nous vérifierons la qualité de nos tests avec le mutation testing et des interactions avec le contract testing. Nous allons également générer des tests à travers le property based testing.
 
-Les tests de contrats proposent une solution pour vérifier les interactions lors de la phase de test. 
-Dans cet atelier, nous présenterons comment mettre en place le test de contrat, en particulier guidé par le consommateur de l’API, au sein de votre architecture entre le front, vos backends aussi bien par appel HTTP ou messages. 
-
-Nous utiliserons Spring Cloud Contract, très bien intégré aux applications Spring Boot, ainsi que Pact ayant l’avantage d’être polyglotte. 
+Alternant théorie et live coding, nous ferons le tour de ces sujets et des outils les plus adaptés.
+Venez découvrir l’état de l’art du test pour créer des applications de haute qualité !
 
