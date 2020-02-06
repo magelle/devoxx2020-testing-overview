@@ -7,3 +7,10 @@ Mais nous ne nous arrêterons pas là. Nous vérifierons la qualité de nos test
 Alternant théorie et live coding, nous ferons le tour de ces sujets et des outils les plus adaptés.
 Venez découvrir l’état de l’art du test pour créer des applications de haute qualité !
 
+## Todo
+
+- Sujet du live coding
+- Déroulé
+- Outils à utiliser ?
+- Ordre de présentation des teypes de tests
+
