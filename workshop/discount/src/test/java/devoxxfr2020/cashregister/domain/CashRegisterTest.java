@@ -2,6 +2,7 @@ package devoxxfr2020.cashregister.domain;
 
 import devoxxfr2020.cashregister.domain.util.DiscountStoreForTest;
 import devoxxfr2020.cashregister.domain.util.FruitStoreForTest;
+import devoxxfr2020.cashregister.domain.util.NeverApplicableBasketDiscount;
 import devoxxfr2020.cashregister.domain.util.SimpleBasketDiscount;
 import org.junit.jupiter.api.Test;
 
@@ -133,5 +134,16 @@ class CashRegisterTest {
         Receipt receipt = cashRegister.editReceipt(fruits);
 
         assertThat(receipt.getTotal()).isEqualTo(50);
+    }
+
+    @Test
+    void should_not_apply_the_basket_discounts_whne_not_applcable() {
+        discountStore.storeBasketDiscount(new NeverApplicableBasketDiscount());
+        fruitStore.storeFruit(BANANES, 150L);
+
+        List<BasketItem> fruits = List.of(new BasketItem(BANANES, 1));
+        Receipt receipt = cashRegister.editReceipt(fruits);
+
+        assertThat(receipt.getTotal()).isEqualTo(150);
     }
 }
