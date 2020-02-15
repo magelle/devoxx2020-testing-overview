@@ -1,7 +1,7 @@
-package devoxxfr2020.discount.repository;
+package devoxxfr2020.fruits;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DiscountRepository extends CrudRepository<Discount, Long> {}
+public interface FruitRepository extends CrudRepository<Fruit, Long> {}
