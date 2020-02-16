@@ -43,10 +43,12 @@ Feature: Basket level discounts
     And I ask for the receipt
     Then the total is 300
 
-  Scenario: not applying the 4 localized pommes on the several type of pommes
+  Scenario: Free fruits
     Given I have a discount of 100 for 4 localized Pommes
-    But I add 1 Pommes in the basket
-    But I add 1 Mele in the basket
-    But I add 1 Apples in the basket
+    And I have a discount of 200 for 5 fruits
+    And There is a discount of 100 every 2 Mele
+    And There is a discount of 100 every 3 Apples
+    But I add 2 Mele in the basket
+    But I add 3 Apples in the basket
     And I ask for the receipt
-    Then the total is 300
+    Then the total is 0

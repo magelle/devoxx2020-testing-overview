@@ -1,0 +1,64 @@
+{
+  "provider": {
+    "name": "cash-register"
+  },
+  "consumer": {
+    "name": "basket"
+  },
+  "interactions": [
+    {
+      "description": "Get a receipt",
+      "request": {
+        "method": "POST",
+        "path": "/receipt"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "description": "Nice shoes",
+          "id": 1,
+          "name": "Shoes"
+        },
+        "matchingRules": {
+          "body": {
+            "$.id": {
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.name": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.description": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "3.5.24"
+    }
+  }
+}

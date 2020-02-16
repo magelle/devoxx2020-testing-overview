@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/basket")
+@RequestMapping("/receipt")
 public class CashRegisterResource {
 
     private CashRegister cashRegister;
