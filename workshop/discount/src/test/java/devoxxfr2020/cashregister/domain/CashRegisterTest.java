@@ -1,9 +1,9 @@
 package devoxxfr2020.cashregister.domain;
 
-import devoxxfr2020.cashregister.domain.util.DiscountStoreForTest;
-import devoxxfr2020.cashregister.domain.util.FruitStoreForTest;
-import devoxxfr2020.cashregister.domain.util.NeverApplicableBasketDiscount;
-import devoxxfr2020.cashregister.domain.util.SimpleBasketDiscount;
+import devoxxfr2020.cashregister.domain.testutil.DiscountStoreForTest;
+import devoxxfr2020.cashregister.domain.testutil.FruitStoreForTest;
+import devoxxfr2020.cashregister.domain.testutil.NeverApplicableBasketDiscount;
+import devoxxfr2020.cashregister.domain.testutil.SimpleBasketDiscount;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

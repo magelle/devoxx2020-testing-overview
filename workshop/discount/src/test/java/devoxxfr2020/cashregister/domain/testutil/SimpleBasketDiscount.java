@@ -1,4 +1,4 @@
-package devoxxfr2020.cashregister.domain.util;
+package devoxxfr2020.cashregister.domain.testutil;
 
 import devoxxfr2020.cashregister.domain.BasketDiscount;
 import devoxxfr2020.cashregister.domain.BasketItem;

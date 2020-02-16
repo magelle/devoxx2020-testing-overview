@@ -18,4 +18,12 @@ public class BasketItem {
     public int getNumber() {
         return number;
     }
+
+    @Override
+    public String toString() {
+        return "BasketItem{" +
+                "fruit='" + fruit + '\'' +
+                ", number=" + number +
+                '}';
+    }
 }

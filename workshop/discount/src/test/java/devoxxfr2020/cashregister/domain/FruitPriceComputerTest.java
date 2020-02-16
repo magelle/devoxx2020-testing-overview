@@ -1,7 +1,7 @@
 package devoxxfr2020.cashregister.domain;
 
-import devoxxfr2020.cashregister.domain.util.DiscountStoreForTest;
-import devoxxfr2020.cashregister.domain.util.FruitStoreForTest;
+import devoxxfr2020.cashregister.domain.testutil.DiscountStoreForTest;
+import devoxxfr2020.cashregister.domain.testutil.FruitStoreForTest;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
