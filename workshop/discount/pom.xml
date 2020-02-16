@@ -73,6 +73,14 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- To express architecture : ArchUnit -->
+		<dependency>
+			<groupId>com.tngtech.archunit</groupId>
+			<artifactId>archunit-junit5</artifactId>
+			<version>0.13.1</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
