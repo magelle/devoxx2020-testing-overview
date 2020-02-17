@@ -15,7 +15,10 @@ public class MoreThan5FruitsDiscount implements BasketDiscount {
 
     @Override
     public long getAmount(List<BasketItem> fruits) {
-        return 200;
+        return (fruits.stream()
+                .mapToLong(item -> item.getNumber())
+                .sum() / 5) * 200;
+        //return 200;
     }
 
     @Override
