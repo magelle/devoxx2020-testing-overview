@@ -2,28 +2,27 @@ package devoxxfr2020.cashregister.domain;
 
 public class BasketItem {
 
+    private final String name;
+    private final int quantity;
 
-    private final String fruit;
-    private final int number;
-
-    public BasketItem(String fruit, int number) {
-        this.fruit = fruit;
-        this.number = number;
+    public BasketItem(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
     }
 
-    public String getFruit() {
-        return fruit;
+    public String getName() {
+        return name;
     }
 
-    public int getNumber() {
-        return number;
+    public int getQuantity() {
+        return quantity;
     }
 
     @Override
     public String toString() {
         return "BasketItem{" +
-                "fruit='" + fruit + '\'' +
-                ", number=" + number +
+                "name='" + name + '\'' +
+                ", quantity=" + quantity +
                 '}';
     }
 }

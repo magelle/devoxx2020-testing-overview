@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class LocalizedAppleDiscountTest {
 
-    private LocalizedAppleDiscount localizedAppleDiscount = new LocalizedAppleDiscount();
+    private LocalizedAppleDiscountApplicable localizedAppleDiscount = new LocalizedAppleDiscountApplicable();
 
     @Test
     public void should_be_applicable_when_more_than_4_apples_in_different_languages() {

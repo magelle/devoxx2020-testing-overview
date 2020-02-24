@@ -4,12 +4,11 @@ import com.pholser.junit.quickcheck.From;
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import devoxxfr2020.cashregister.domain.*;
-import devoxxfr2020.cashregister.domain.discount.LocalizedAppleDiscount;
-import devoxxfr2020.cashregister.domain.discount.MoreThan5FruitsDiscount;
+import devoxxfr2020.cashregister.domain.discount.LocalizedAppleDiscountApplicable;
+import devoxxfr2020.cashregister.domain.discount.MoreThan5FruitsDiscountApplicable;
 import devoxxfr2020.cashregister.domain.testutil.DiscountStoreForTest;
 import devoxxfr2020.cashregister.domain.testutil.FruitStoreForTest;
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 
 import java.util.List;
@@ -46,8 +45,8 @@ public class CashRegisterPropertyTest {
         this.discountStore.storeFruitDiscount(APPLES, new FruitDiscount(100, 3));
         this.discountStore.storeFruitDiscount(MELE, new FruitDiscount(100, 2));
 
-        this.discountStore.storeBasketDiscount(new LocalizedAppleDiscount());
-        this.discountStore.storeBasketDiscount(new MoreThan5FruitsDiscount());
+        this.discountStore.storeBasketDiscount(new LocalizedAppleDiscountApplicable());
+        this.discountStore.storeBasketDiscount(new MoreThan5FruitsDiscountApplicable());
     }
 
     @Property

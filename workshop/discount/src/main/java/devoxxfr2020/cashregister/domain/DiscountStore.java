@@ -5,5 +5,5 @@ import java.util.Optional;
 
 public interface DiscountStore {
     Optional<FruitDiscount> getFruitDiscount(String fruit);
-    List<BasketDiscount> getBasketDiscount();
+    List<ApplicableBasketDiscount> getBasketDiscount();
 }

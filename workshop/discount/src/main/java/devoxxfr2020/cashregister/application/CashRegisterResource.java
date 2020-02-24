@@ -19,7 +19,7 @@ public class CashRegisterResource {
         this.cashRegister = cashRegister;
     }
 
-    @PostMapping("/receipt")
+    @PostMapping("/api/receipt")
     public Receipt getPrice(@RequestBody List<BasketItem> basketItems) {
         return this.cashRegister.editReceipt(basketItems);
     }

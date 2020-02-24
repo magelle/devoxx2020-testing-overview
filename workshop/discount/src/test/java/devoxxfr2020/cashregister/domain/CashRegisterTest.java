@@ -2,8 +2,8 @@ package devoxxfr2020.cashregister.domain;
 
 import devoxxfr2020.cashregister.domain.testutil.DiscountStoreForTest;
 import devoxxfr2020.cashregister.domain.testutil.FruitStoreForTest;
-import devoxxfr2020.cashregister.domain.testutil.NeverApplicableBasketDiscount;
-import devoxxfr2020.cashregister.domain.testutil.SimpleBasketDiscount;
+import devoxxfr2020.cashregister.domain.testutil.NeverApplicableApplicableBasketDiscount;
+import devoxxfr2020.cashregister.domain.testutil.SimpleApplicableBasketDiscount;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -69,7 +69,7 @@ class CashRegisterTest {
 
         Receipt receipt = cashRegister.editReceipt(fruits);
 
-        assertThat(receipt.getFruitPrices()).isEmpty();
+        assertThat(receipt.getItems()).isEmpty();
     }
 
     @Test
@@ -79,7 +79,7 @@ class CashRegisterTest {
 
         Receipt receipt = cashRegister.editReceipt(fruits);
 
-        assertThat(receipt.getFruitPrices())
+        assertThat(receipt.getItems())
                 .isEqualTo(List.of(new ReceiptItem(POMMES, 1, 100)));
     }
 
@@ -90,7 +90,7 @@ class CashRegisterTest {
 
         Receipt receipt = cashRegister.editReceipt(fruits);
 
-        assertThat(receipt.getFruitPrices())
+        assertThat(receipt.getItems())
                 .isEqualTo(List.of(new ReceiptItem(POMMES, 2, 200)));
     }
 
@@ -105,7 +105,7 @@ class CashRegisterTest {
 
         Receipt receipt = cashRegister.editReceipt(fruits);
 
-        assertThat(receipt.getFruitPrices())
+        assertThat(receipt.getItems())
                 .isEqualTo(List.of(
                         new ReceiptItem(POMMES, 1, 100),
                         new ReceiptItem(BANANES, 1, 150))
@@ -114,20 +114,20 @@ class CashRegisterTest {
 
     @Test
     void should_add_the_basket_discount_in_the_receipt() {
-        SimpleBasketDiscount discount = new SimpleBasketDiscount(100);
+        SimpleApplicableBasketDiscount discount = new SimpleApplicableBasketDiscount(100);
         discountStore.storeBasketDiscount(discount);
         fruitStore.storeFruit(BANANES, 150L);
 
         List<BasketItem> fruits = List.of(new BasketItem(BANANES, 1));
         Receipt receipt = cashRegister.editReceipt(fruits);
 
-        assertThat(receipt.getBasketDiscounts())
+        assertThat(receipt.getDiscounts())
                 .isEqualTo(List.of(discount));
     }
 
     @Test
     void should_apply_the_basket_discounts_to_the_total() {
-        discountStore.storeBasketDiscount(new SimpleBasketDiscount(100));
+        discountStore.storeBasketDiscount(new SimpleApplicableBasketDiscount(100));
         fruitStore.storeFruit(BANANES, 150L);
 
         List<BasketItem> fruits = List.of(new BasketItem(BANANES, 1));
@@ -138,7 +138,7 @@ class CashRegisterTest {
 
     @Test
     void should_not_apply_the_basket_discounts_whne_not_applcable() {
-        discountStore.storeBasketDiscount(new NeverApplicableBasketDiscount());
+        discountStore.storeBasketDiscount(new NeverApplicableApplicableBasketDiscount());
         fruitStore.storeFruit(BANANES, 150L);
 
         List<BasketItem> fruits = List.of(new BasketItem(BANANES, 1));

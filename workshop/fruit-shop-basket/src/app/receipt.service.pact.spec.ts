@@ -41,20 +41,17 @@ describe('ReceiptService', () => {
   });
 
   const basket: BasketItem[] = [
-    { fruit: 'Pears', quantity: 12 }
+    { name: 'Pommes', quantity: 5 }
   ];
 
   const receipt: Receipt = {
     items: [
-      {fruit: "Pommes", quantity: 2, total: 200},
-      {fruit: "Bananes", quantity: 3, total: 450},
-      {fruit: "Cerises", quantity: 1, total: 75}
+      {fruit: "Pommes", quantity: 5, total: 500}
     ],
     discounts: [
-      { name: "5 fruits a day", amount: 100 },
-      { name: "Apples lover", amount: 200 },
+      { name: "5 fruits a day", amount: 100 }
     ],
-    total: 525
+    total: 400
   }
 
   beforeAll((done) => {

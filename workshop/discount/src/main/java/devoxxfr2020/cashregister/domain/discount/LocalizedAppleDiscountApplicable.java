@@ -1,11 +1,11 @@
 package devoxxfr2020.cashregister.domain.discount;
 
-import devoxxfr2020.cashregister.domain.BasketDiscount;
+import devoxxfr2020.cashregister.domain.ApplicableBasketDiscount;
 import devoxxfr2020.cashregister.domain.BasketItem;
 
 import java.util.List;
 
-public class LocalizedAppleDiscount implements BasketDiscount {
+public class LocalizedAppleDiscountApplicable implements ApplicableBasketDiscount {
 
     public static final List<String> LOCALIZED_POMMES = List.of("Pommes", "Apples", "Mele");
 
@@ -22,8 +22,8 @@ public class LocalizedAppleDiscount implements BasketDiscount {
     @Override
     public boolean isApplicable(List<BasketItem> fruits) {
         return fruits.stream()
-                .filter(item -> LOCALIZED_POMMES.contains(item.getFruit()))
-                .mapToLong(BasketItem::getNumber)
+                .filter(item -> LOCALIZED_POMMES.contains(item.getName()))
+                .mapToLong(BasketItem::getQuantity)
                 .sum() >= 4;
 
     }

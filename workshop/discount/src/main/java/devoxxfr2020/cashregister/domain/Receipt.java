@@ -4,22 +4,22 @@ import java.util.List;
 
 public class Receipt {
 
-    private List<ReceiptItem> fruitPrices;
-    private List<BasketDiscount> basketDiscounts;
+    private List<ReceiptItem> items;
+    private List<AppliedBasketDiscount> discounts;
     private long total;
 
-    public Receipt(List<ReceiptItem> fruitPrices, List<BasketDiscount> basketDiscounts, long total) {
-        this.fruitPrices = fruitPrices;
-        this.basketDiscounts = basketDiscounts;
+    public Receipt(List<ReceiptItem> items, List<AppliedBasketDiscount> discounts, long total) {
+        this.items = items;
+        this.discounts = discounts;
         this.total = total;
     }
 
-    public List<ReceiptItem> getFruitPrices() {
-        return fruitPrices;
+    public List<ReceiptItem> getItems() {
+        return items;
     }
 
-    public List<BasketDiscount> getBasketDiscounts() {
-        return basketDiscounts;
+    public List<AppliedBasketDiscount> getDiscounts() {
+        return discounts;
     }
 
     public long getTotal() {

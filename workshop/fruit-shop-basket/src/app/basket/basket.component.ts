@@ -14,9 +14,9 @@ export class BasketComponent implements OnInit {
 
   ngOnInit() {
     this.receiptService.getReceipt([
-      { fruit: 'Pommes', quantity: 12 },
-      { fruit: 'Bananes', quantity: 2 },
-      { fruit: 'Cerises', quantity: 5 }
+      { name: 'Pommes', quantity: 12 },
+      { name: 'Bananes', quantity: 2 },
+      { name: 'Cerises', quantity: 5 }
     ]).subscribe(receipt => this.receipt = receipt)
   }
 

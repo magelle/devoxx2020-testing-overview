@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class MoreThan5FruitsDiscountTest {
 
-    private MoreThan5FruitsDiscount moreThan5FruitsDiscount = new MoreThan5FruitsDiscount();
+    private MoreThan5FruitsDiscountApplicable moreThan5FruitsDiscount = new MoreThan5FruitsDiscountApplicable();
 
     @Test
     public void should_be_applicable_when_there_is_more_than_5_fruits() {

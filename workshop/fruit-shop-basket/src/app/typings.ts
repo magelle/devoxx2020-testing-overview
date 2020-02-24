@@ -1,5 +1,5 @@
 export class BasketItem {
-  fruit: string;
+  name: string;
   quantity: number;
 }
 

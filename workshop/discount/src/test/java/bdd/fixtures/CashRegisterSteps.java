@@ -1,8 +1,8 @@
 package bdd.fixtures;
 
 import devoxxfr2020.cashregister.domain.*;
-import devoxxfr2020.cashregister.domain.discount.LocalizedAppleDiscount;
-import devoxxfr2020.cashregister.domain.discount.MoreThan5FruitsDiscount;
+import devoxxfr2020.cashregister.domain.discount.LocalizedAppleDiscountApplicable;
+import devoxxfr2020.cashregister.domain.discount.MoreThan5FruitsDiscountApplicable;
 import devoxxfr2020.cashregister.domain.testutil.DiscountStoreForTest;
 import devoxxfr2020.cashregister.domain.testutil.FruitStoreForTest;
 import io.cucumber.java.en.And;
@@ -37,12 +37,12 @@ public class CashRegisterSteps {
 
     @Given("I have a discount of 200 for 5 fruits")
     public void iHaveADiscountOfForFruits() {
-        discountStore.storeBasketDiscount(new MoreThan5FruitsDiscount());
+        discountStore.storeBasketDiscount(new MoreThan5FruitsDiscountApplicable());
     }
 
     @Given("I have a discount of 100 for 4 localized Pommes")
     public void iHaveADiscountOfForLocalizedPommes() {
-        discountStore.storeBasketDiscount(new LocalizedAppleDiscount());
+        discountStore.storeBasketDiscount(new LocalizedAppleDiscountApplicable());
     }
 
     @Given("the basket is empty")
@@ -67,12 +67,12 @@ public class CashRegisterSteps {
 
     @And("the item list is empty")
     public void theItemListIsEmpty() {
-        assertThat(receipt.getFruitPrices()).isEmpty();
+        assertThat(receipt.getItems()).isEmpty();
     }
 
     @And("the receipt display the price of {int} for {int} {word}")
     public void theReceiptDisplayThePriceOfForPommes(int price, int quantity, String fruit) {
-        assertThat(receipt.getFruitPrices())
+        assertThat(receipt.getItems())
                 .contains(new ReceiptItem(fruit, quantity, price));
     }
 }

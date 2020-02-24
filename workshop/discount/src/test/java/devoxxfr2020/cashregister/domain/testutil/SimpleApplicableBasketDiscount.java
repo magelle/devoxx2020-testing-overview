@@ -1,14 +1,14 @@
 package devoxxfr2020.cashregister.domain.testutil;
 
-import devoxxfr2020.cashregister.domain.BasketDiscount;
+import devoxxfr2020.cashregister.domain.ApplicableBasketDiscount;
 import devoxxfr2020.cashregister.domain.BasketItem;
 
 import java.util.List;
 
-public class SimpleBasketDiscount implements BasketDiscount {
+public class SimpleApplicableBasketDiscount implements ApplicableBasketDiscount {
     private int amount;
 
-    public SimpleBasketDiscount(int amount) {
+    public SimpleApplicableBasketDiscount(int amount) {
         this.amount = amount;
     }
 

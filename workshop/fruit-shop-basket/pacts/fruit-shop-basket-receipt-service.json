@@ -13,8 +13,8 @@
         "path": "/api/receipt",
         "body": [
           {
-            "fruit": "Pears",
-            "quantity": 12
+            "name": "Pommes",
+            "quantity": 5
           }
         ]
       },
@@ -27,31 +27,17 @@
           "items": [
             {
               "fruit": "Pommes",
-              "quantity": 2,
-              "total": 200
-            },
-            {
-              "fruit": "Bananes",
-              "quantity": 3,
-              "total": 450
-            },
-            {
-              "fruit": "Cerises",
-              "quantity": 1,
-              "total": 75
+              "quantity": 5,
+              "total": 500
             }
           ],
           "discounts": [
             {
               "name": "5 fruits a day",
               "amount": 100
-            },
-            {
-              "name": "Apples lover",
-              "amount": 200
             }
           ],
-          "total": 525
+          "total": 400
         },
         "matchingRules": {
           "$.body": {

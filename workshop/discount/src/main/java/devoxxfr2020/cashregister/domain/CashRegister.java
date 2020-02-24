@@ -20,14 +20,16 @@ public class CashRegister {
     public Receipt editReceipt(List<BasketItem> basketItem) {
         List<ReceiptItem> receiptItems = getPrices(basketItem);
 
-        List<BasketDiscount> basketDiscounts = getApplicableBasketDiscount(basketItem);
+        List<AppliedBasketDiscount> basketDiscounts = getApplicableBasketDiscount(basketItem);
 
-        long total = sumFruits(receiptItems) - getTotalDiscount(basketDiscounts, basketItem);
+        long total = sumFruits(receiptItems) - getTotalDiscount(basketDiscounts);
         return new Receipt(receiptItems, basketDiscounts, total);
     }
 
-    private long getTotalDiscount(List<BasketDiscount> basketDiscounts, List<BasketItem> basketItem) {
-        return basketDiscounts.stream().mapToLong(discount -> discount.getAmount(basketItem)).sum();
+    private long getTotalDiscount(List<AppliedBasketDiscount> basketDiscounts) {
+        return basketDiscounts.stream()
+                .mapToLong(AppliedBasketDiscount::getAmount)
+                .sum();
     }
 
     private List<ReceiptItem> getPrices(List<BasketItem> basketItem) {
@@ -42,15 +44,16 @@ public class CashRegister {
                 .sum();
     }
 
-    private List<BasketDiscount> getApplicableBasketDiscount(List<BasketItem> basketItem) {
+    private List<AppliedBasketDiscount> getApplicableBasketDiscount(List<BasketItem> basketItem) {
         return discountStore.getBasketDiscount().stream()
                     .filter(discount -> discount.isApplicable(basketItem))
+                    .map(applicable -> new AppliedBasketDiscount(applicable.getName(), applicable.getAmount(basketItem)))
                     .collect(toList());
     }
 
     private ReceiptItem createReceiptItem(BasketItem item) {
-        int number = item.getNumber();
-        String fruit = item.getFruit();
+        int number = item.getQuantity();
+        String fruit = item.getName();
         long total = fruitPriceComputer.getPriceWithDiscount(fruit, number);
         return new ReceiptItem(fruit, number, total);
     }

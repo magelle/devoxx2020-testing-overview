@@ -1,10 +1,10 @@
 package devoxxfr2020.cashregister.application;
 
-import devoxxfr2020.cashregister.domain.BasketDiscount;
+import devoxxfr2020.cashregister.domain.ApplicableBasketDiscount;
 import devoxxfr2020.cashregister.domain.DiscountStore;
 import devoxxfr2020.cashregister.domain.FruitDiscount;
-import devoxxfr2020.cashregister.domain.discount.LocalizedAppleDiscount;
-import devoxxfr2020.cashregister.domain.discount.MoreThan5FruitsDiscount;
+import devoxxfr2020.cashregister.domain.discount.LocalizedAppleDiscountApplicable;
+import devoxxfr2020.cashregister.domain.discount.MoreThan5FruitsDiscountApplicable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,10 +31,10 @@ public class StaticDiscountStore implements DiscountStore {
     }
 
     @Override
-    public List<BasketDiscount> getBasketDiscount() {
+    public List<ApplicableBasketDiscount> getBasketDiscount() {
         return List.of(
-                new LocalizedAppleDiscount(),
-                new MoreThan5FruitsDiscount()
+                new LocalizedAppleDiscountApplicable(),
+                new MoreThan5FruitsDiscountApplicable()
         );
     }
 }
