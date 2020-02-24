@@ -1,0 +1,69 @@
+{
+  "consumer": {
+    "name": "frint-shop-basket"
+  },
+  "provider": {
+    "name": "receipt-service"
+  },
+  "interactions": [
+    {
+      "description": "Ask for receipt",
+      "request": {
+        "method": "POST",
+        "path": "/api/receipt",
+        "body": [
+          {
+            "fruit": "Pears",
+            "quantity": 12
+          }
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "items": [
+            {
+              "fruit": "Pommes",
+              "quantity": 2,
+              "total": 200
+            },
+            {
+              "fruit": "Bananes",
+              "quantity": 3,
+              "total": 450
+            },
+            {
+              "fruit": "Cerises",
+              "quantity": 1,
+              "total": 75
+            }
+          ],
+          "discounts": [
+            {
+              "name": "5 fruits a day",
+              "amount": 100
+            },
+            {
+              "name": "Apples lover",
+              "amount": 200
+            }
+          ],
+          "total": 525
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  }
+}
