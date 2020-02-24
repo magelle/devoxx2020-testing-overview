@@ -19,3 +19,8 @@ export class BasketDiscount {
   name: string;
   amount: number;
 }
+
+export class Fruit {
+  name: string;
+  price: number;
+}

@@ -1,1 +1,13 @@
-<p>basket works!</p>
+<p>My Receipt</p>
+
+<div *ngIf="fruits">
+    <h3>Fruits</h3>
+    <table>
+        <tr *ngFor="let fruit of fruits">
+            <td>{{ fruit.name }}</td>
+            <td>{{ fruit.price }} €</td>
+            <td><button (click)="addFruit(fruit.name)"> + </button></td>
+            <td><button (click)="removeFruit(fruit.name)"> - </button></td>
+        </tr>
+    </table>
+</div>

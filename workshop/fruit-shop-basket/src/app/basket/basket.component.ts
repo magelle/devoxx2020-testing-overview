@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ReceiptService } from '../receipt.service';
-import { Receipt } from '../typings';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Fruit } from '../typings';
+import { FruitService } from '../fruit.service';
 
 @Component({
   selector: 'app-basket',
@@ -8,16 +8,26 @@ import { Receipt } from '../typings';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
-  receipt: Receipt
+  @Output()
+  add = new EventEmitter<string>()
+  @Output()
+  remove = new EventEmitter<string>()
 
-  constructor(private receiptService: ReceiptService) { }
+  fruits: Fruit[] = []
+
+  constructor(private fruitService: FruitService) { }
 
   ngOnInit() {
-    this.receiptService.getReceipt([
-      { name: 'Pommes', quantity: 12 },
-      { name: 'Bananes', quantity: 2 },
-      { name: 'Cerises', quantity: 5 }
-    ]).subscribe(receipt => this.receipt = receipt)
+    this.fruitService.allFruits().subscribe(fruits => this.fruits = fruits)
+  }
+
+  public addFruit(fruit: string) {
+      this.add.emit(fruit);
+  }
+
+  public removeFruit(fruit: string) {
+    this.remove.emit(fruit);
+    
   }
 
 }

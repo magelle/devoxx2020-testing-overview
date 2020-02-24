@@ -1,0 +1,21 @@
+<p>My Receipt</p>
+
+<div *ngIf="receipt">
+    <h3>Fruits</h3>
+    <table>
+        <tr *ngFor="let item of receipt.items">
+            <td>{{ item.quantity }} {{ item.fruit }}</td>
+            <td>{{ item.total }} €</td>
+        </tr>
+    </table>
+
+    <h3>Discounts</h3>
+    <table>
+        <tr *ngFor="let discount of receipt.discounts">
+            <td>{{ discount.name }}</td>
+            <td> -{{ discount.amount }} €</td>
+        </tr>
+    </table>
+
+    <h3>Total {{ receipt.total }} €</h3>
+</div>
