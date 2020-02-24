@@ -1,13 +1,21 @@
-<p>My Receipt</p>
+<div class="card">
+    <div class="card-header">
+        <h1>My Basket</h1>
+    </div>
 
-<div *ngIf="fruits">
-    <h3>Fruits</h3>
-    <table>
-        <tr *ngFor="let fruit of fruits">
-            <td>{{ fruit.name }}</td>
-            <td>{{ fruit.price }} €</td>
-            <td><button (click)="addFruit(fruit.name)"> + </button></td>
-            <td><button (click)="removeFruit(fruit.name)"> - </button></td>
-        </tr>
-    </table>
+    <div class="card-body">
+        <div *ngIf="fruits">
+            <h3>Fruits</h3>
+            <table class="table table-striped">
+                <tbody>
+                    <tr *ngFor="let fruit of fruits">
+                        <td>{{ fruit.name }}</td>
+                        <td>{{ fruit.price }} €</td>
+                        <td><button class="btn-primary" (click)="addFruit(fruit.name)"> + </button></td>
+                        <td><button class="btn-primary" (click)="removeFruit(fruit.name)"> - </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

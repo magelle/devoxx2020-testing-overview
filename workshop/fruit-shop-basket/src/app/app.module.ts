@@ -7,6 +7,8 @@ import { ReceiptService } from './receipt.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReceiptComponent } from './receipt/receipt.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +16,7 @@ import { ReceiptComponent } from './receipt/receipt.component';
     ReceiptComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     HttpClientModule
   ],

@@ -1,8 +1,13 @@
+<div class="container">
 
-<div>
+  <div class="row">
 
-  <app-basket (add)="addItem($event)" (remove)="removeItem($event)"></app-basket>
+    <div class="col-md-6">
+      <app-basket (add)="addItem($event)" (remove)="removeItem($event)"></app-basket>
+    </div>
 
-  <app-receipt [basket]="basket"></app-receipt>
-
+    <div class="col-md-6">
+      <app-receipt [basket]="basket"></app-receipt>
+    </div>
+  </div>
 </div>
