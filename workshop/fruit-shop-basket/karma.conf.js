@@ -33,12 +33,12 @@ module.exports = function (config) {
     pact: [
       {
         cors: true,
-        consumer: 'frint-shop-basket',
+        consumer: 'fruit-shop-basket',
         provider: 'receipt-service',
         port: 1234,
         spec: 3,
         log: path.resolve(process.cwd(), 'logs', 'mockserver-integration.log'),
-        dir: path.resolve(process.cwd(), '../../pacts')
+        dir: path.resolve('pacts')
       }
     ],
     proxies: {

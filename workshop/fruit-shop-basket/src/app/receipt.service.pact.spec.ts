@@ -11,7 +11,7 @@ describe('ReceiptService', () => {
   beforeAll(async () => {
 
     provider = await new PactWeb({
-      consumer: 'frint-shop-basket',
+      consumer: 'fruit-shop-basket',
       provider: 'receipt-service',
       port: 1234
     });

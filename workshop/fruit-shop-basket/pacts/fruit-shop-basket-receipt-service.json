@@ -1,6 +1,6 @@
 {
   "consumer": {
-    "name": "frint-shop-basket"
+    "name": "fruit-shop-basket"
   },
   "provider": {
     "name": "receipt-service"
