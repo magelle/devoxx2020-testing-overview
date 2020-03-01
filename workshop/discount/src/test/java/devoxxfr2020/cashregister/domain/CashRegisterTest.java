@@ -122,7 +122,7 @@ class CashRegisterTest {
         Receipt receipt = cashRegister.editReceipt(fruits);
 
         assertThat(receipt.getDiscounts())
-                .isEqualTo(List.of(discount));
+                .isEqualTo(List.of(new AppliedBasketDiscount("Simple discount for test", 100)));
     }
 
     @Test
