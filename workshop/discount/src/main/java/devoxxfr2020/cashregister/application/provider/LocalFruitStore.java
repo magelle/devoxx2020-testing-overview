@@ -1,4 +1,4 @@
-package devoxxfr2020.cashregister.application;
+package devoxxfr2020.cashregister.application.provider;
 
 import devoxxfr2020.cashregister.domain.FruitStore;
 import devoxxfr2020.fruits.Fruit;
@@ -20,6 +20,6 @@ public class LocalFruitStore implements FruitStore {
                 return fruit.getPrice();
             }
         }
-        throw new IllegalArgumentException(("Unkown fruit " + fruitName));
+        throw new IllegalArgumentException(("Unknown fruit " + fruitName));
     }
 }

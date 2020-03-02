@@ -18,8 +18,9 @@ public class BasketItems extends Generator<BasketItem> {
     @Override public BasketItem generate(
             SourceOfRandomness r,
             GenerationStatus status) {
+        // r.setSeed(4756296717872799445L);
         String fruit = r.choose(ALL_FRUITS);
-        return new BasketItem(fruit, r.nextInt(1, 4));
+        return new BasketItem(fruit, r.nextInt(1, 5));
     }
 }
 

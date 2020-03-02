@@ -1,4 +1,4 @@
-package devoxxfr2020.cashregister.application;
+package devoxxfr2020.cashregister.application.provider;
 
 import devoxxfr2020.cashregister.domain.ApplicableBasketDiscount;
 import devoxxfr2020.cashregister.domain.DiscountStore;
