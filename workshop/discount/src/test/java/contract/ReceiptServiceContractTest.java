@@ -43,16 +43,11 @@ public class ReceiptServiceContractTest {
     @MockBean
     private CashRegister cashRegister;
 
-    private String providerUrl = "http://localhost:8080";
+    private static String PROVIDER_URL = "http://localhost:8080";
 
     @BeforeEach
     public void beforeEach() {
-        when(cashRegister.editReceipt(anyList())).thenReturn(
-                new Receipt(
-                        List.of(new ReceiptItem("Pommes", 3, 300)),
-                        List.of(new AppliedBasketDiscount("More than 5 apples", 100)),
-                        500)
-        );
+
     }
 
     @TestTemplate
@@ -63,6 +58,13 @@ public class ReceiptServiceContractTest {
 
     @BeforeEach
     public void before(PactVerificationContext context) throws MalformedURLException {
-        context.setTarget(HttpTestTarget.fromUrl(new URL(providerUrl)));
+        when(cashRegister.editReceipt(anyList())).thenReturn(
+                new Receipt(
+                        List.of(new ReceiptItem("Pommes", 3, 300)),
+                        List.of(new AppliedBasketDiscount("More than 5 apples", 100)),
+                        500)
+        );
+
+        context.setTarget(HttpTestTarget.fromUrl(new URL(PROVIDER_URL)));
     }
 }
