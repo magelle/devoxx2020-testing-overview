@@ -1,0 +1,14 @@
+{
+  "name": "fruit-shop-e2e",
+  "version": "1.0.0",
+  "description": "Fruit Shop end to end tests",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^4.1.0"
+  },
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  }
+}
