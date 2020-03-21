@@ -17,8 +17,8 @@ class CashRegisterTest {
     public static final String BANANES = "Bananes";
     private FruitStoreForTest fruitStore = new FruitStoreForTest();
     private DiscountStoreForTest discountStore = new DiscountStoreForTest();
-    private FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
-    private CashRegister cashRegister = new CashRegister(fruitPriceComputer, discountStore);
+    private PriceWithDiscountCalculator priceWithDiscountCalculator = new PriceWithDiscountCalculator(fruitStore, discountStore);
+    private CashRegister cashRegister = new CashRegister(priceWithDiscountCalculator, discountStore);
 
     @Test
     void should_return_an_empty_receipt_if_no_fruit() {

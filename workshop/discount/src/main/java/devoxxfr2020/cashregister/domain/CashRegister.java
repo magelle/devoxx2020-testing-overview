@@ -9,11 +9,11 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class CashRegister {
 
-    private FruitPriceComputer fruitPriceComputer;
+    private PriceWithDiscountCalculator priceWithDiscountCalculator;
     private DiscountStore discountStore;
 
-    public CashRegister(FruitPriceComputer fruitPriceComputer, DiscountStore discountStore) {
-        this.fruitPriceComputer = fruitPriceComputer;
+    public CashRegister(PriceWithDiscountCalculator priceWithDiscountCalculator, DiscountStore discountStore) {
+        this.priceWithDiscountCalculator = priceWithDiscountCalculator;
         this.discountStore = discountStore;
     }
 
@@ -54,7 +54,7 @@ public class CashRegister {
     private ReceiptItem createReceiptItem(BasketItem item) {
         int number = item.getQuantity();
         String fruit = item.getName();
-        long total = fruitPriceComputer.getPriceWithDiscount(fruit, number);
+        long total = priceWithDiscountCalculator.priceWithDiscount(fruit, number);
         return new ReceiptItem(fruit, number, total);
     }
 
