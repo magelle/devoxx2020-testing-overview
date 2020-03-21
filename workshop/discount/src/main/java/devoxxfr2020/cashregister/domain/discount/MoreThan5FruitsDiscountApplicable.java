@@ -16,14 +16,14 @@ public class MoreThan5FruitsDiscountApplicable implements ApplicableBasketDiscou
     @Override
     public long getAmount(List<BasketItem> fruits) {
         return (fruits.stream()
-                .mapToLong(item -> item.getQuantity())
+                .mapToLong(BasketItem::getQuantity)
                 .sum() / 5) * 200;
     }
 
     @Override
     public boolean isApplicable(List<BasketItem> fruits) {
         return fruits.stream()
-                .mapToLong(item -> item.getQuantity())
+                .mapToLong(BasketItem::getQuantity)
                 .sum() >= 5;
     }
 }
