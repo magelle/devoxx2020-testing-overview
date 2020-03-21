@@ -9,38 +9,38 @@ Feature: Basket level discounts
 
   Scenario: having the "more than 5 fruits" discount
     Given I have a discount of 200 for 5 fruits
-    When I add 1 Pommes in the basket
-    When I add 1 Mele in the basket
-    When I add 1 Bananes in the basket
-    When I add 1 Cerises in the basket
-    When I add 1 Apples in the basket
-    And I ask for the receipt
+    And 1 Pommes in the basket
+    And 1 Mele in the basket
+    And 1 Bananes in the basket
+    And 1 Cerises in the basket
+    And 1 Apples in the basket
+    When I ask for the receipt
     Then the total is 300
 
   Scenario: having the "more than 5 fruits" discount, but not applied
     Given I have a discount of 200 for 5 fruits
-    But I add 4 Pommes in the basket
-    And I ask for the receipt
+    But 4 Pommes in the basket
+    When I ask for the receipt
     Then the total is 400
 
   Scenario: Applying the 4 localized pommes on the same type of pommes
     Given I have a discount of 100 for 4 localized Pommes
-    But I add 4 Pommes in the basket
-    And I ask for the receipt
+    But 4 Pommes in the basket
+    When I ask for the receipt
     Then the total is 300
 
   Scenario: not applying the 4 localized pommes on the same type of pommes
     Given I have a discount of 100 for 4 localized Pommes
-    But I add 3 Pommes in the basket
-    And I ask for the receipt
+    But 3 Pommes in the basket
+    When I ask for the receipt
     Then the total is 300
 
   Scenario: Applying the 4 localized pommes on the several type of pommes
     Given I have a discount of 100 for 4 localized Pommes
-    But I add 1 Pommes in the basket
-    But I add 1 Mele in the basket
-    But I add 2 Apples in the basket
-    And I ask for the receipt
+    But 1 Pommes in the basket
+    But 1 Mele in the basket
+    But 2 Apples in the basket
+    When I ask for the receipt
     Then the total is 300
 
   Scenario: Free fruits
@@ -48,7 +48,7 @@ Feature: Basket level discounts
     And I have a discount of 200 for 5 fruits
     And There is a discount of 100 every 2 Mele
     And There is a discount of 100 every 3 Apples
-    But I add 2 Mele in the basket
-    But I add 3 Apples in the basket
-    And I ask for the receipt
+    But 2 Mele in the basket
+    But 3 Apples in the basket
+    When I ask for the receipt
     Then the total is 0

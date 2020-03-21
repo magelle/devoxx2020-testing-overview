@@ -50,7 +50,7 @@ public class CashRegisterSteps {
         basketItems.clear();
     }
 
-    @When("I add {int} {word} in the basket")
+    @Given("{int} {word} in the basket")
     public void iAddAPommesInTheBasket(int number, String fruit) {
         basketItems.add(new BasketItem(fruit, number));
     }
