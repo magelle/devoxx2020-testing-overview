@@ -18,6 +18,7 @@ public class MoreThan5FruitsDiscountApplicable implements ApplicableBasketDiscou
         return (fruits.stream()
                 .mapToLong(BasketItem::getQuantity)
                 .sum() / 5) * 200;
+        // faulty value return 200;
     }
 
     @Override

@@ -93,6 +93,14 @@
 			<version>0.9.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.quicktheories</groupId>
+			<artifactId>quicktheories</artifactId>
+			<version>0.26</version>
+			<scope>test</scope>
+		</dependency>
+
+
 		<!-- Contract testing : Pact -->
 		<dependency>
 			<groupId>au.com.dius</groupId>

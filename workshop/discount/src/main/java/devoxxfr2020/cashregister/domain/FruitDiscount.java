@@ -10,8 +10,20 @@ public class FruitDiscount {
         this.threshold = threshold;
     }
 
+    public long getDiscount() {
+        return discount;
+    }
+
     public long getDiscountAmount(long numberOfFruit) {
         long numberOfDiscountApplication = numberOfFruit / threshold;
         return numberOfDiscountApplication * discount;
+    }
+
+    @Override
+    public String toString() {
+        return "FruitDiscount{" +
+                "discount=" + discount +
+                ", threshold=" + threshold +
+                '}';
     }
 }

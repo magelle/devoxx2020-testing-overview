@@ -17,4 +17,11 @@ public class FruitStoreForTest implements FruitStore {
     public void storeFruit(String fruit, Long price) {
         this.prices.put(fruit, price);
     }
+
+    @Override
+    public String toString() {
+        return "FruitStoreForTest{" +
+                "prices=" + prices +
+                '}';
+    }
 }
