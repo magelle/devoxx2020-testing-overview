@@ -28,4 +28,11 @@ public class DiscountStoreForTest implements DiscountStore {
         this.basketDiscounts.add(basketDiscount);
     }
 
+    @Override
+    public String toString() {
+        return "DiscountStoreForTest{" +
+                "FruitDiscounts=" + FruitDiscounts +
+                ", basketDiscounts=" + basketDiscounts +
+                '}';
+    }
 }

@@ -29,8 +29,8 @@ public class CashRegisterPropertyTest {
 
     private FruitStoreForTest fruitStore = new FruitStoreForTest();
     private DiscountStoreForTest discountStore = new DiscountStoreForTest();
-    private FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
-    private CashRegister cashRegister = new CashRegister(fruitPriceComputer, discountStore);
+    private PriceWithDiscountCalculator priceWithDiscountCalculator = new PriceWithDiscountCalculator(fruitStore, discountStore);
+    private CashRegister cashRegister = new CashRegister(priceWithDiscountCalculator, discountStore);
 
     @Before
     public void beforeEach() {

@@ -19,8 +19,8 @@ public class CashRegisterSteps {
 
     private FruitStoreForTest fruitStore = new FruitStoreForTest();
     private DiscountStoreForTest discountStore = new DiscountStoreForTest();
-    private FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
-    private CashRegister cashRegister = new CashRegister(fruitPriceComputer, discountStore);
+    private PriceWithDiscountCalculator priceWithDiscountCalculator = new PriceWithDiscountCalculator(fruitStore, discountStore);
+    private CashRegister cashRegister = new CashRegister(priceWithDiscountCalculator, discountStore);
 
     private List<BasketItem> basketItems = new ArrayList<>();
     private Receipt receipt = null;
@@ -50,7 +50,7 @@ public class CashRegisterSteps {
         basketItems.clear();
     }
 
-    @When("I add {int} {word} in the basket")
+    @Given("{int} {word} in the basket")
     public void iAddAPommesInTheBasket(int number, String fruit) {
         basketItems.add(new BasketItem(fruit, number));
     }
