@@ -5,7 +5,6 @@ import devoxxfr2020.cashregister.domain.discount.LocalizedAppleDiscountApplicabl
 import devoxxfr2020.cashregister.domain.discount.MoreThan5FruitsDiscountApplicable;
 import devoxxfr2020.cashregister.domain.testutil.DiscountStoreForTest;
 import devoxxfr2020.cashregister.domain.testutil.FruitStoreForTest;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,12 +16,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CashRegisterSteps {
 
-    private FruitStoreForTest fruitStore = new FruitStoreForTest();
-    private DiscountStoreForTest discountStore = new DiscountStoreForTest();
-    private FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
-    private CashRegister cashRegister = new CashRegister(fruitPriceComputer, discountStore);
+    private final FruitStoreForTest fruitStore = new FruitStoreForTest();
+    private final DiscountStoreForTest discountStore = new DiscountStoreForTest();
+    private final FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
+    private final CashRegister cashRegister = new CashRegister(fruitPriceComputer, discountStore);
 
-    private List<BasketItem> basketItems = new ArrayList<>();
+    private final List<BasketItem> basketItems = new ArrayList<>();
     private Receipt receipt = null;
 
     @Given("the price of a {word} is {int}")
@@ -30,17 +29,17 @@ public class CashRegisterSteps {
         fruitStore.storeFruit(fruit, amount);
     }
 
-    @Given("There is a discount of {int} every {int} {word}")
+    @Given("there is a discount of {int} every {int} {word}")
     public void thereIsADiscountOfEveryCerises(int discount, int threshold, String fruit) {
         discountStore.storeFruitDiscount(fruit, new FruitDiscount(discount, threshold));
     }
 
-    @Given("I have a discount of 200 for 5 fruits")
+    @Given("there is a discount of 200 for 5 fruits")
     public void iHaveADiscountOfForFruits() {
         discountStore.storeBasketDiscount(new MoreThan5FruitsDiscountApplicable());
     }
 
-    @Given("I have a discount of 100 for 4 localized Pommes")
+    @Given("there is a discount of 100 for 4 localized Pommes")
     public void iHaveADiscountOfForLocalizedPommes() {
         discountStore.storeBasketDiscount(new LocalizedAppleDiscountApplicable());
     }
@@ -50,12 +49,12 @@ public class CashRegisterSteps {
         basketItems.clear();
     }
 
-    @When("I add {int} {word} in the basket")
+    @Given("the basket contains {int} {word}")
     public void iAddAPommesInTheBasket(int number, String fruit) {
         basketItems.add(new BasketItem(fruit, number));
     }
 
-    @When("I ask for the receipt")
+    @When("the customer ask for the receipt")
     public void iAskForTheReceipt() {
         receipt = cashRegister.editReceipt(basketItems);
     }
@@ -65,12 +64,12 @@ public class CashRegisterSteps {
         assertThat(receipt.getTotal()).isEqualTo(amount);
     }
 
-    @And("the item list is empty")
+    @Then("the item list is empty")
     public void theItemListIsEmpty() {
         assertThat(receipt.getItems()).isEmpty();
     }
 
-    @And("the receipt display the price of {int} for {int} {word}")
+    @Then("the receipt display the price of {int} for {int} {word}")
     public void theReceiptDisplayThePriceOfForPommes(int price, int quantity, String fruit) {
         assertThat(receipt.getItems())
                 .contains(new ReceiptItem(fruit, quantity, price));
