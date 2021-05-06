@@ -121,7 +121,16 @@
 			<plugin>
 				<groupId>org.pitest</groupId>
 				<artifactId>pitest-maven</artifactId>
-				<version>1.4.11</version>
+				<version>1.6.6</version>
+				<configuration>
+					<excludedMethods>hashCode,equals</excludedMethods>
+					<targetClasses>
+						<param>devoxxfr2020.cashregister.domain*</param>
+					</targetClasses>
+					<targetTests>
+						<param>devoxxfr2020.cashregister.domain*</param>
+					</targetTests>
+				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>org.pitest</groupId>
