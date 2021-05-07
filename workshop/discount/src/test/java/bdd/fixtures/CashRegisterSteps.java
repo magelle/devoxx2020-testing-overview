@@ -16,12 +16,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CashRegisterSteps {
 
-    private final FruitStoreForTest fruitStore = new FruitStoreForTest();
-    private final DiscountStoreForTest discountStore = new DiscountStoreForTest();
-    private final FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
-    private final CashRegister cashRegister = new CashRegister(fruitPriceComputer, discountStore);
+    private FruitStoreForTest fruitStore = new FruitStoreForTest();
+    private DiscountStoreForTest discountStore = new DiscountStoreForTest();
+    private PriceWithDiscountCalculator priceWithDiscountCalculator = new PriceWithDiscountCalculator(fruitStore, discountStore);
+    private CashRegister cashRegister = new CashRegister(priceWithDiscountCalculator, discountStore);
 
-    private final List<BasketItem> basketItems = new ArrayList<>();
+    private List<BasketItem> basketItems = new ArrayList<>();
     private Receipt receipt = null;
 
     @Given("the price of a {word} is {int}")
