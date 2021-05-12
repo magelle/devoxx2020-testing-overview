@@ -26,11 +26,11 @@ class CashRegisterResourceTest {
                 .content("[\n" +
                         "  {\n" +
                         "    \"name\": \"Pommes\",\n" +
-                        "    \"quantity\": 5\n" +
+                        "    \"quantity\": 3\n" +
                         "  },\n" +
                         "{\n" +
                         "    \"name\": \"Bananes\",\n" +
-                        "    \"quantity\": 2\n" +
+                        "    \"quantity\": 3\n" +
                         "  }\n" +
                         "]")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -43,11 +43,11 @@ class CashRegisterResourceTest {
         Assertions.assertNotNull(resultDOW);
         Assertions.assertEquals("{" +
                 "\"items\":[" +
-                "{\"fruit\":\"Pommes\",\"quantity\":5,\"total\":500}," +
-                "{\"fruit\":\"Bananes\",\"quantity\":2,\"total\":150}" +
+                "{\"fruit\":\"Pommes\",\"quantity\":3,\"total\":300}," +
+                "{\"fruit\":\"Bananes\",\"quantity\":3,\"total\":300}" +
                 "]," +
-                "\"discounts\":[{\"name\":\"More than 4 Apples\",\"amount\":100},{\"name\":\"More than 5 fruits\",\"amount\":200}]," +
-                "\"total\":350" +
+                "\"discounts\":[{\"name\":\"More than 5 fruits\",\"amount\":200}]," +
+                "\"total\":400" +
                 "}", resultDOW);
     }
 

@@ -2,7 +2,6 @@ package devoxxfr2020.cashregister.repository;
 
 import devoxxfr2020.cashregister.model.ApplicableBasketDiscount;
 import devoxxfr2020.cashregister.model.FruitDiscount;
-import devoxxfr2020.cashregister.model.discount.LocalizedAppleDiscountApplicable;
 import devoxxfr2020.cashregister.model.discount.MoreThan5FruitsDiscountApplicable;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +29,6 @@ public class DiscountStore {
 
     public List<ApplicableBasketDiscount> getBasketDiscount() {
         return List.of(
-                new LocalizedAppleDiscountApplicable(),
                 new MoreThan5FruitsDiscountApplicable()
         );
     }
