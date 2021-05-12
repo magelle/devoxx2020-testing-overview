@@ -1,6 +1,6 @@
 package devoxxfr2020.cashregister.controller;
 
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -10,8 +10,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -22,7 +20,7 @@ class CashRegisterResourceTest {
     private MockMvc mockMvc;
 
     @Test
-    public void test() throws Exception {
+    public void testing_receipt() throws Exception {
 
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/receipt")
                 .content("[\n" +
@@ -42,15 +40,15 @@ class CashRegisterResourceTest {
 
         String resultDOW = result.getResponse().getContentAsString();
 
-        assertNotNull(resultDOW);
-        assertEquals("{" +
+        Assertions.assertNotNull(resultDOW);
+        Assertions.assertEquals("{" +
                 "\"items\":[" +
-                    "{\"fruit\":\"Pommes\",\"quantity\":5,\"total\":500}," +
-                    "{\"fruit\":\"Bananes\",\"quantity\":2,\"total\":150}" +
+                "{\"fruit\":\"Pommes\",\"quantity\":5,\"total\":500}," +
+                "{\"fruit\":\"Bananes\",\"quantity\":2,\"total\":150}" +
                 "]," +
                 "\"discounts\":[{\"name\":\"More than 4 Apples\",\"amount\":100},{\"name\":\"More than 5 fruits\",\"amount\":200}]," +
                 "\"total\":350" +
                 "}", resultDOW);
-     }
+    }
 
 }

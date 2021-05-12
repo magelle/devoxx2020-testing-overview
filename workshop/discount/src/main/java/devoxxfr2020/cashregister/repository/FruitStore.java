@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FruitStore {
-    private FruitController fruitController;
+    private final FruitController fruitController;
 
     public FruitStore(FruitController fruitController) {
         this.fruitController = fruitController;
