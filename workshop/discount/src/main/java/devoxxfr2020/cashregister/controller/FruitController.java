@@ -1,4 +1,4 @@
-package devoxxfr2020.cashregister.bdd;
+package devoxxfr2020.cashregister.controller;
 
 import devoxxfr2020.cashregister.model.Fruit;
 import devoxxfr2020.cashregister.repository.FruitRepository;

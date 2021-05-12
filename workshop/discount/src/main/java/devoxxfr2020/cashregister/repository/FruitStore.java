@@ -1,7 +1,7 @@
 package devoxxfr2020.cashregister.repository;
 
 import devoxxfr2020.cashregister.model.Fruit;
-import devoxxfr2020.cashregister.bdd.FruitController;
+import devoxxfr2020.cashregister.controller.FruitController;
 import org.springframework.stereotype.Service;
 
 @Service

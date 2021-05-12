@@ -1,4 +1,4 @@
-package devoxxfr2020.cashregister.bdd;
+package devoxxfr2020.cashregister.controller;
 
 
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ class CashRegisterResourceTest {
                 .content("[\n" +
                         "  {\n" +
                         "    \"name\": \"Pommes\",\n" +
-                        "    \"quantity\": 2\n" +
+                        "    \"quantity\": 5\n" +
                         "  },\n" +
                         "{\n" +
                         "    \"name\": \"Bananes\",\n" +
@@ -45,10 +45,10 @@ class CashRegisterResourceTest {
         assertNotNull(resultDOW);
         assertEquals("{" +
                 "\"items\":[" +
-                    "{\"fruit\":\"Pommes\",\"quantity\":2,\"total\":200}," +
+                    "{\"fruit\":\"Pommes\",\"quantity\":5,\"total\":500}," +
                     "{\"fruit\":\"Bananes\",\"quantity\":2,\"total\":150}" +
                 "]," +
-                "\"discounts\":[]," +
+                "\"discounts\":[{\"name\":\"More than 4 Apples\",\"amount\":100},{\"name\":\"More than 5 fruits\",\"amount\":200}]," +
                 "\"total\":350" +
                 "}", resultDOW);
      }
