@@ -14,7 +14,7 @@ import java.util.TreeMap;
 @Service
 public class DiscountStore {
 
-    private Map<String, FruitDiscount> discounts;
+    private final Map<String, FruitDiscount> discounts;
 
     public DiscountStore() {
         this.discounts = new TreeMap<>();

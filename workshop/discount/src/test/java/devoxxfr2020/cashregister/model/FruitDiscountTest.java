@@ -1,6 +1,5 @@
 package devoxxfr2020.cashregister.model;
 
-import devoxxfr2020.cashregister.model.FruitDiscount;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -10,7 +10,7 @@ import java.util.Optional;
 @RequestMapping(value = "/api/fruits")
 public class FruitController {
 
-    private FruitRepository fruitRepository;
+    private final FruitRepository fruitRepository;
 
     public FruitController(FruitRepository fruitRepository) {
         this.fruitRepository = fruitRepository;
@@ -21,8 +21,8 @@ public class FruitController {
         return fruitRepository.save(fruit);
     }
 
-    @PutMapping(value = "$id")
-    public Fruit update(@PathVariable("id") long id, @RequestBody Fruit fruit) {
+    @PutMapping(value = "{id}")
+    public Fruit update(@PathVariable long id, @RequestBody Fruit fruit) {
         if (fruitRepository.existsById(id)) {
             fruitRepository.delete(fruit);
             return fruitRepository.save(fruit);
@@ -30,8 +30,8 @@ public class FruitController {
         return null;
     }
 
-    @GetMapping(value = "$id")
-    public Optional<Fruit> get(@PathVariable("$id") long id) {
+    @GetMapping(value = "{id}")
+    public Optional<Fruit> get(@PathVariable long id) {
         return fruitRepository.findById(id);
     }
 
@@ -40,8 +40,8 @@ public class FruitController {
         return fruitRepository.findAll();
     }
 
-    @DeleteMapping
-    public Optional<Fruit> delete(@PathVariable("id") long id) {
+    @DeleteMapping(value = "{id}")
+    public Optional<Fruit> delete(@PathVariable long id) {
         Optional<Fruit> fruit = fruitRepository.findById(id);
         if (fruit.isPresent()) fruitRepository.deleteById(id);
         return fruit;

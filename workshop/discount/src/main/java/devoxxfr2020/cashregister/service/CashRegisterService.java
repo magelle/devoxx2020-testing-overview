@@ -14,8 +14,8 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class CashRegisterService {
 
-    private FruitPriceComputer fruitPriceComputer;
-    private DiscountStore discountStore;
+    private final FruitPriceComputer fruitPriceComputer;
+    private final DiscountStore discountStore;
 
     public CashRegisterService(FruitPriceComputer fruitPriceComputer, DiscountStore discountStore) {
         this.fruitPriceComputer = fruitPriceComputer;

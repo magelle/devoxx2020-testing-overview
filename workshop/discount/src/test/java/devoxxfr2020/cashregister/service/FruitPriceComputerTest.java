@@ -3,7 +3,6 @@ package devoxxfr2020.cashregister.service;
 import devoxxfr2020.cashregister.model.FruitDiscount;
 import devoxxfr2020.cashregister.repository.DiscountStore;
 import devoxxfr2020.cashregister.repository.FruitStore;
-import devoxxfr2020.cashregister.service.FruitPriceComputer;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -15,9 +14,9 @@ import static org.mockito.Mockito.when;
 class FruitPriceComputerTest {
 
     public static final String BANANES = "Bananes";
-    private FruitStore fruitStore = mock(FruitStore.class);
-    private DiscountStore discountStore = mock(DiscountStore.class);
-    private FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
+    private final FruitStore fruitStore = mock(FruitStore.class);
+    private final DiscountStore discountStore = mock(DiscountStore.class);
+    private final FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
 
     @Test
     public void should_multiply_the_price_by_the_number_of_item() {

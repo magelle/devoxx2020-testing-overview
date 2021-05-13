@@ -2,9 +2,9 @@ package devoxxfr2020.cashregister.model;
 
 public class ReceiptItem {
 
-    private String fruit;
-    private long quantity;
-    private long total;
+    private final String fruit;
+    private final long quantity;
+    private final long total;
 
 
     public ReceiptItem(String fruit, long quantity, long total) {

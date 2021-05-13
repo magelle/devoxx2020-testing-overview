@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 public class CashRegisterResource {
 
-    private CashRegisterService cashRegisterService;
+    private final CashRegisterService cashRegisterService;
 
     public CashRegisterResource(CashRegisterService cashRegisterService) {
         this.cashRegisterService = cashRegisterService;

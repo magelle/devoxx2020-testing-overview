@@ -24,6 +24,6 @@ public class MoreThan5FruitsDiscountApplicable implements ApplicableBasketDiscou
     public boolean isApplicable(List<BasketItem> fruits) {
         return fruits.stream()
                 .mapToLong(item -> item.getQuantity())
-                .sum() >= 5;
+                .sum() > 5;
     }
 }

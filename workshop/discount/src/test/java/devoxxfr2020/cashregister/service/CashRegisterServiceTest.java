@@ -8,8 +8,6 @@ import devoxxfr2020.cashregister.model.Receipt;
 import devoxxfr2020.cashregister.model.ReceiptItem;
 import devoxxfr2020.cashregister.repository.DiscountStore;
 import devoxxfr2020.cashregister.repository.FruitStore;
-import devoxxfr2020.cashregister.service.CashRegisterService;
-import devoxxfr2020.cashregister.service.FruitPriceComputer;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -23,10 +21,10 @@ class CashRegisterServiceTest {
 
     public static final String POMMES = "Pommes";
     public static final String BANANES = "Bananes";
-    private FruitStore fruitStore = mock(FruitStore.class);
-    private DiscountStore discountStore = mock(DiscountStore.class);
-    private FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
-    private CashRegisterService cashRegisterService = new CashRegisterService(fruitPriceComputer, discountStore);
+    private final FruitStore fruitStore = mock(FruitStore.class);
+    private final DiscountStore discountStore = mock(DiscountStore.class);
+    private final FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
+    private final CashRegisterService cashRegisterService = new CashRegisterService(fruitPriceComputer, discountStore);
 
     @Test
     void should_return_an_empty_receipt_if_no_fruit() {

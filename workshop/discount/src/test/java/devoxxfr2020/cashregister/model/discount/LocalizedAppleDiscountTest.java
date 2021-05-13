@@ -8,7 +8,7 @@ import java.util.List;
 
 class LocalizedAppleDiscountTest {
 
-    private LocalizedAppleDiscountApplicable localizedAppleDiscount = new LocalizedAppleDiscountApplicable();
+    private final LocalizedAppleDiscountApplicable localizedAppleDiscount = new LocalizedAppleDiscountApplicable();
 
     @Test
     public void should_be_applicable_when_more_than_4_apples_in_different_languages() {
