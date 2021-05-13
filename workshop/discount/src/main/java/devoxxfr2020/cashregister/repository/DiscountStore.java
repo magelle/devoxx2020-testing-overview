@@ -17,10 +17,8 @@ public class DiscountStore {
 
     public DiscountStore() {
         this.discounts = new TreeMap<>();
-        this.discounts.put("Cerises", new FruitDiscount(20, 2));
+        this.discounts.put("Cerises", new FruitDiscount(20, 4));
         this.discounts.put("Bananes", new FruitDiscount(150, 2));
-        this.discounts.put("Apples", new FruitDiscount(100, 3));
-        this.discounts.put("Mele", new FruitDiscount(100, 2));
     }
 
     public Optional<FruitDiscount> getFruitDiscount(String fruit) {
