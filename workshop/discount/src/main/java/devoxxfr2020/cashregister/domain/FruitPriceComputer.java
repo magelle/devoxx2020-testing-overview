@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class FruitPriceComputer {
 
-    private FruitStore fruitStore;
-    private DiscountStore discountStore;
+    private final FruitStore fruitStore;
+    private final DiscountStore discountStore;
 
     public FruitPriceComputer(FruitStore fruitStore, DiscountStore discountStore) {
         this.fruitStore = fruitStore;

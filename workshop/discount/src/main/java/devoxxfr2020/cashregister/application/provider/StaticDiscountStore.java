@@ -15,7 +15,7 @@ import java.util.TreeMap;
 @Service
 public class StaticDiscountStore implements DiscountStore {
 
-    private Map<String, FruitDiscount> discounts;
+    private final Map<String, FruitDiscount> discounts;
 
     public StaticDiscountStore() {
         this.discounts = new TreeMap<>();

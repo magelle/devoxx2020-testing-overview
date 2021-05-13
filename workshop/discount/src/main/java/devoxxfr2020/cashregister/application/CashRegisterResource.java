@@ -1,6 +1,5 @@
 package devoxxfr2020.cashregister.application;
 
-
 import devoxxfr2020.cashregister.domain.BasketItem;
 import devoxxfr2020.cashregister.domain.CashRegister;
 import devoxxfr2020.cashregister.domain.Receipt;
@@ -13,7 +12,7 @@ import java.util.List;
 @RestController
 public class CashRegisterResource {
 
-    private CashRegister cashRegister;
+    private final CashRegister cashRegister;
 
     public CashRegisterResource(CashRegister cashRegister) {
         this.cashRegister = cashRegister;

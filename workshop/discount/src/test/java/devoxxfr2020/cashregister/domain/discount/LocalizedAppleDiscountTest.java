@@ -9,11 +9,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class LocalizedAppleDiscountTest {
 
-    private LocalizedAppleDiscountApplicable localizedAppleDiscount = new LocalizedAppleDiscountApplicable();
+    private final LocalizedAppleDiscountApplicable localizedAppleDiscount = new LocalizedAppleDiscountApplicable();
 
     @Test
     public void should_be_applicable_when_more_than_4_apples_in_different_languages() {
-        List<BasketItem> fruits = List.of(new BasketItem("Apples", 1), new BasketItem("Mele", 1), new BasketItem("Pommes", 2));
+        List<BasketItem> fruits = List.of(
+                new BasketItem("Apples", 1),
+                new BasketItem("Mele", 1),
+                new BasketItem("Pommes", 2)
+        );
         boolean applicable = localizedAppleDiscount.isApplicable(fruits);
         assertThat(applicable).isTrue();
     }
@@ -27,7 +31,11 @@ class LocalizedAppleDiscountTest {
 
     @Test
     public void should_be_applicable_when_less_than_4_apples_in_different_languages() {
-        List<BasketItem> fruits = List.of(new BasketItem("Apples", 1), new BasketItem("Mele", 1), new BasketItem("Pommes", 1));
+        List<BasketItem> fruits = List.of(
+                new BasketItem("Apples", 1),
+                new BasketItem("Mele", 1),
+                new BasketItem("Pommes", 1)
+        );
         boolean applicable = localizedAppleDiscount.isApplicable(fruits);
         assertThat(applicable).isFalse();
     }

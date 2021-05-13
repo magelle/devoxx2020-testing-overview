@@ -4,6 +4,7 @@ import devoxxfr2020.cashregister.domain.testutil.DiscountStoreForTest;
 import devoxxfr2020.cashregister.domain.testutil.FruitStoreForTest;
 import devoxxfr2020.cashregister.domain.testutil.NeverApplicableApplicableBasketDiscount;
 import devoxxfr2020.cashregister.domain.testutil.SimpleApplicableBasketDiscount;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -15,10 +16,15 @@ class CashRegisterTest {
 
     public static final String POMMES = "Pommes";
     public static final String BANANES = "Bananes";
-    private FruitStoreForTest fruitStore = new FruitStoreForTest();
-    private DiscountStoreForTest discountStore = new DiscountStoreForTest();
-    private FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
-    private CashRegister cashRegister = new CashRegister(fruitPriceComputer, discountStore);
+    private final FruitStoreForTest fruitStore = new FruitStoreForTest();
+    private final DiscountStoreForTest discountStore = new DiscountStoreForTest();
+    private final FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
+    private final CashRegister cashRegister = new CashRegister(fruitPriceComputer, discountStore);
+
+    @Before
+    void before() {
+        fruitStore.clear();
+    }
 
     @Test
     void should_return_an_empty_receipt_if_no_fruit() {
@@ -26,10 +32,12 @@ class CashRegisterTest {
 
         Receipt receipt = cashRegister.editReceipt(fruits);
 
+        assertThat(receipt.getItems()).isEmpty();
         assertThat(receipt.getTotal()).isEqualTo(0);
+        assertThat(receipt.getDiscounts()).isEmpty();
     }
 
-    @Test
+    @Test // FIXME : duplicate
     void should_return_the_price_of_one_fruit() {
         fruitStore.storeFruit(POMMES, 100L);
         List<BasketItem> fruits = List.of(new BasketItem(POMMES, 1));
@@ -40,7 +48,7 @@ class CashRegisterTest {
     }
 
     @Test
-    void should_return_the_price_of__fruit() {
+    void should_return_the_price_of_fruit() {
         fruitStore.storeFruit(POMMES, 100L);
         List<BasketItem> fruits = List.of(new BasketItem(POMMES, 2));
 
@@ -63,7 +71,7 @@ class CashRegisterTest {
         assertThat(receipt.getTotal()).isEqualTo(250);
     }
 
-    @Test
+    @Test // FIXME : duplicate
     void should_return_an_empty_receipt_item_list_if_no_fruit() {
         List<BasketItem> fruits = emptyList();
 
@@ -83,7 +91,7 @@ class CashRegisterTest {
                 .isEqualTo(List.of(new ReceiptItem(POMMES, 1, 100)));
     }
 
-    @Test
+    @Test // FIXME : duplicate
     void should_return_sum_the_price_when_several_times_a_fruit() {
         fruitStore.storeFruit(POMMES, 100L);
         List<BasketItem> fruits = List.of(new BasketItem(POMMES, 2));

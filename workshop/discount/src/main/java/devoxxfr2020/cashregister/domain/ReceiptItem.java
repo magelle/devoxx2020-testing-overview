@@ -2,10 +2,9 @@ package devoxxfr2020.cashregister.domain;
 
 public class ReceiptItem {
 
-    private String fruit;
-    private long quantity;
-    private long total;
-
+    private final String fruit;
+    private final long quantity;
+    private final long total;
 
     public ReceiptItem(String fruit, long quantity, long total) {
         this.fruit = fruit;
@@ -17,6 +16,7 @@ public class ReceiptItem {
         return fruit;
     }
 
+    //FIXME : not tested ?
     public long getQuantity() {
         return quantity;
     }

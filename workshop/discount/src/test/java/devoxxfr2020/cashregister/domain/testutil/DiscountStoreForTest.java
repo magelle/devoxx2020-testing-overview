@@ -8,8 +8,8 @@ import java.util.*;
 
 public class DiscountStoreForTest implements DiscountStore {
 
-    private Map<String, FruitDiscount> FruitDiscounts = new HashMap<>();
-    private List<ApplicableBasketDiscount> basketDiscounts = new ArrayList<>();
+    private final Map<String, FruitDiscount> FruitDiscounts = new HashMap<>();
+    private final List<ApplicableBasketDiscount> basketDiscounts = new ArrayList<>();
 
     @Override
     public Optional<FruitDiscount> getFruitDiscount(String fruit) {

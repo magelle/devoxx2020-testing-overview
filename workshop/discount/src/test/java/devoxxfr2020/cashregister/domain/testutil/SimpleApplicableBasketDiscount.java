@@ -6,7 +6,7 @@ import devoxxfr2020.cashregister.domain.BasketItem;
 import java.util.List;
 
 public class SimpleApplicableBasketDiscount implements ApplicableBasketDiscount {
-    private int amount;
+    private final int amount;
 
     public SimpleApplicableBasketDiscount(int amount) {
         this.amount = amount;

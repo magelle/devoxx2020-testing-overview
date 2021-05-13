@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class FruitStoreForTest implements FruitStore {
 
-    private Map<String, Long> prices = new HashMap<>();
+    private final Map<String, Long> prices = new HashMap<>();
 
     @Override
     public long getPrice(String fruitName) {
@@ -16,5 +16,9 @@ public class FruitStoreForTest implements FruitStore {
 
     public void storeFruit(String fruit, Long price) {
         this.prices.put(fruit, price);
+    }
+
+    public void clear() {
+        prices.clear();
     }
 }

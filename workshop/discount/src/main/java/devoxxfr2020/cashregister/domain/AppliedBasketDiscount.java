@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class AppliedBasketDiscount {
 
-    private String name;
-    private long amount;
+    private final String name;
+    private final long amount;
 
     public AppliedBasketDiscount(String name, long amount) {
         this.name = name;

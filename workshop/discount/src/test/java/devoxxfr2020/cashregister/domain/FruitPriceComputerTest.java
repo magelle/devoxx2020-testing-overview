@@ -2,6 +2,7 @@ package devoxxfr2020.cashregister.domain;
 
 import devoxxfr2020.cashregister.domain.testutil.DiscountStoreForTest;
 import devoxxfr2020.cashregister.domain.testutil.FruitStoreForTest;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -9,9 +10,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 class FruitPriceComputerTest {
 
     public static final String BANANES = "Bananes";
-    private FruitStoreForTest fruitStore  = new FruitStoreForTest();
-    private DiscountStoreForTest discountStore = new DiscountStoreForTest();
-    private FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
+    private final FruitStoreForTest fruitStore  = new FruitStoreForTest();
+    private final DiscountStoreForTest discountStore = new DiscountStoreForTest();
+    private final FruitPriceComputer fruitPriceComputer = new FruitPriceComputer(fruitStore, discountStore);
+
+    @Before
+    void before() {
+        fruitStore.clear();
+    }
 
     @Test
     public void should_multiply_the_price_by_the_number_of_item() {

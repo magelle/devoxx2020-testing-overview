@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Receipt {
 
-    private List<ReceiptItem> items;
-    private List<AppliedBasketDiscount> discounts;
-    private long total;
+    private final List<ReceiptItem> items;
+    private final List<AppliedBasketDiscount> discounts;
+    private final long total;
 
     public Receipt(List<ReceiptItem> items, List<AppliedBasketDiscount> discounts, long total) {
         this.items = items;

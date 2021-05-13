@@ -7,23 +7,22 @@ import java.util.List;
 
 public class MoreThan5FruitsDiscountApplicable implements ApplicableBasketDiscount {
 
-
     @Override
     public String getName() {
         return "More than 5 fruits";
     }
 
-    @Override
+    @Override // FIXME : not tested
     public long getAmount(List<BasketItem> fruits) {
         return (fruits.stream()
-                .mapToLong(item -> item.getQuantity())
+                .mapToLong(BasketItem::getQuantity)
                 .sum() / 5) * 200;
     }
 
     @Override
     public boolean isApplicable(List<BasketItem> fruits) {
         return fruits.stream()
-                .mapToLong(item -> item.getQuantity())
+                .mapToLong(BasketItem::getQuantity)
                 .sum() >= 5;
     }
 }

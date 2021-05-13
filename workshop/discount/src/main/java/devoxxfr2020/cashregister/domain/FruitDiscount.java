@@ -2,8 +2,8 @@ package devoxxfr2020.cashregister.domain;
 
 public class FruitDiscount {
 
-    private long discount;
-    private long threshold;
+    private final long discount;
+    private final long threshold;
 
     public FruitDiscount(long discount, long threshold) {
         this.discount = discount;
