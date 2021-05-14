@@ -49,7 +49,7 @@ public class CashRegisterPropertyTest {
         this.discountStore.storeBasketDiscount(new MoreThan5FruitsDiscountApplicable());
     }
 
-    @Property
+    @Property(trials = 1000)
     public void notEmptyBasketShouldHaveAPositiveTotal(List<@From(BasketItems.class) BasketItem> basket) {
         assumeThat(basket.size(), greaterThan(0));
 
