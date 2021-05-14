@@ -6,6 +6,7 @@ import devoxxfr2020.cashregister.domain.discount.MoreThan5FruitsDiscountApplicab
 import devoxxfr2020.cashregister.domain.testutil.DiscountStoreForTest;
 import devoxxfr2020.cashregister.domain.testutil.FruitStoreForTest;
 import org.jetbrains.annotations.NotNull;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.quicktheories.api.Pair;
 import org.quicktheories.core.Gen;

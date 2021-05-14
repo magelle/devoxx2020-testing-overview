@@ -5,6 +5,7 @@ import devoxxfr2020.cashregister.domain.discount.LocalizedAppleDiscountApplicabl
 import devoxxfr2020.cashregister.domain.discount.MoreThan5FruitsDiscountApplicable;
 import devoxxfr2020.cashregister.domain.testutil.DiscountStoreForTest;
 import devoxxfr2020.cashregister.domain.testutil.FruitStoreForTest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -22,6 +23,7 @@ public class FailingTest {
     public static final String POMMES = "Pommes";
 
     @Test
+    @Disabled
     void fail1() {
         FruitStoreForTest fruitStore = new FruitStoreForTest();
         fruitStore.storeFruit(BANANES, 10L);
@@ -43,6 +45,7 @@ public class FailingTest {
     }
 
     @Test
+    @Disabled
     void fail2() {
 
         FruitStoreForTest fruitStore = new FruitStoreForTest();
