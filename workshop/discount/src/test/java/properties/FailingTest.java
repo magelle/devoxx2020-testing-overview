@@ -18,8 +18,6 @@ public class FailingTest {
 
     public static final String CERISES = "Cerises";
     public static final String BANANES = "Bananes";
-    public static final String APPLES = "Apples";
-    public static final String MELE = "Mele";
     public static final String POMMES = "Pommes";
 
     @Test
@@ -49,16 +47,16 @@ public class FailingTest {
     void fail2() {
 
         FruitStoreForTest fruitStore = new FruitStoreForTest();
-        fruitStore.storeFruit(MELE, 100L);
+        fruitStore.storeFruit(POMMES, 100L);
 
         DiscountStoreForTest discountStore = new DiscountStoreForTest();
-        discountStore.storeFruitDiscount(MELE, new FruitDiscount(100, 2));
+        discountStore.storeFruitDiscount(POMMES, new FruitDiscount(100, 2));
 
         discountStore.storeBasketDiscount(new LocalizedAppleDiscountApplicable());
         discountStore.storeBasketDiscount(new MoreThan5FruitsDiscountApplicable());
 
         List<BasketItem> basketItems = Collections.singletonList(
-                new BasketItem(MELE, 6)
+                new BasketItem(POMMES, 6)
         );
 
         PriceWithDiscountCalculator priceWithDiscountCalculator = new PriceWithDiscountCalculator(fruitStore, discountStore);
