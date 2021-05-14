@@ -1,5 +1,6 @@
 package devoxxfr2020.cashregister.domain;
 
+import devoxxfr2020.cashregister.application.provider.StaticDiscountStore;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,9 @@ public class CashRegister {
     public CashRegister(FruitPriceComputer fruitPriceComputer, DiscountStore discountStore) {
         this.fruitPriceComputer = fruitPriceComputer;
         this.discountStore = discountStore;
+        if (discountStore instanceof StaticDiscountStore) {
+            ((StaticDiscountStore) discountStore).addFruitDiscount("Mele", 100, 2);
+        }
     }
 
     public Receipt editReceipt(List<BasketItem> basketItem) {
