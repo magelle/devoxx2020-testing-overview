@@ -61,6 +61,6 @@ public class FailingTest {
         PriceWithDiscountCalculator priceWithDiscountCalculator = new PriceWithDiscountCalculator(fruitStore, discountStore);
         CashRegister cashRegister = new CashRegister(priceWithDiscountCalculator, discountStore);
         Receipt receipt = cashRegister.editReceipt(basketItems);
-        assertThat(receipt.getTotal()).isEqualTo(0L);
+        assertThat(receipt.getTotal()).isGreaterThan(0L);
     }
 }

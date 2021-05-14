@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BasketItems extends Generator<BasketItem> {
 
-    public static final List<String> ALL_FRUITS = List.of(CashRegisterPropertyTest.CERISES, CashRegisterPropertyTest.POMMES, CashRegisterPropertyTest.BANANES, CashRegisterPropertyTest.APPLES, CashRegisterPropertyTest.MELE);
+    public static final List<String> ALL_FRUITS = List.of(CashRegisterPropertyTest.CERISES, CashRegisterPropertyTest.POMMES, CashRegisterPropertyTest.BANANES);
 
     public BasketItems() {
         super(BasketItem.class);

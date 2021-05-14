@@ -23,33 +23,28 @@ public class CashRegisterPropertyTest {
 
     public static final String CERISES = "Cerises";
     public static final String BANANES = "Bananes";
-    public static final String APPLES = "Apples";
-    public static final String MELE = "Mele";
     public static final String POMMES = "Pommes";
 
-    private FruitStoreForTest fruitStore = new FruitStoreForTest();
-    private DiscountStoreForTest discountStore = new DiscountStoreForTest();
-    private PriceWithDiscountCalculator priceWithDiscountCalculator = new PriceWithDiscountCalculator(fruitStore, discountStore);
-    private CashRegister cashRegister = new CashRegister(priceWithDiscountCalculator, discountStore);
+    private final FruitStoreForTest fruitStore = new FruitStoreForTest();
+    private final DiscountStoreForTest discountStore = new DiscountStoreForTest();
+    private final PriceWithDiscountCalculator priceWithDiscountCalculator = new PriceWithDiscountCalculator(fruitStore, discountStore);
+    private final CashRegister cashRegister = new CashRegister(priceWithDiscountCalculator, discountStore);
 
     @Before
     public void beforeEach() {
         this.fruitStore.storeFruit(CERISES, 75L);
         this.fruitStore.storeFruit(BANANES, 150L);
-        this.fruitStore.storeFruit(POMMES, 100L);
-        this.fruitStore.storeFruit(APPLES, 100L);
-        this.fruitStore.storeFruit(MELE, 100L);
+        this.fruitStore.storeFruit(POMMES, 50L);
 
-        this.discountStore.storeFruitDiscount(CERISES, new FruitDiscount(20, 2));
-        this.discountStore.storeFruitDiscount(BANANES, new FruitDiscount(150, 2));
-        this.discountStore.storeFruitDiscount(APPLES, new FruitDiscount(100, 3));
-        this.discountStore.storeFruitDiscount(MELE, new FruitDiscount(100, 2));
+        this.discountStore.storeFruitDiscount(CERISES, new FruitDiscount(20L, 2));
+        this.discountStore.storeFruitDiscount(BANANES, new FruitDiscount(150L, 2));
+        this.discountStore.storeFruitDiscount(POMMES, new FruitDiscount(50L, 4));
 
         this.discountStore.storeBasketDiscount(new LocalizedAppleDiscountApplicable());
         this.discountStore.storeBasketDiscount(new MoreThan5FruitsDiscountApplicable());
     }
 
-    @Property(trials = 1000)
+    @Property(trials = 2000)
     public void notEmptyBasketShouldHaveAPositiveTotal(List<@From(BasketItems.class) BasketItem> basket) {
         assumeThat(basket.size(), greaterThan(0));
 
